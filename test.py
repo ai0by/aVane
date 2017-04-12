@@ -192,6 +192,7 @@ def testRe():
 # 主函数开始
 if __name__ == '__main__':
     print("hello world");
+    # 常规语法测试
     # getQiushibaike();
     # string_build();
     # testFor();
