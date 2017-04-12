@@ -57,5 +57,6 @@ def testRequest():
 
 
 if __name__ =='__main__':
+    # 常规库演示
     # hello("ai0by",12345,myUid=001);
     app.run(debug=True)
