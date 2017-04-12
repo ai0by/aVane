@@ -1,6 +1,6 @@
 #-*- encoding=UTF-8 -*-
 
-from flask import Flask,render_template
+from flask import Flask,render_template,request
 # 引入Flask框架
 
 # 装饰器
@@ -43,7 +43,17 @@ def profile(uid):
     me = {"name":"tang","num":91}
     return render_template("profile.html",uid=uid,colors=colors,me=me)
 
-
+# 测试一个request的简单调用
+@app.route('/request')
+def testRequest():
+    # 将res设置为,get传参,当不传递任何参数时,默认是defaultkey
+    res = request.args.get("key","defaultkey") + "<br>"
+    # 将res增加,地址显示和path
+    res = request.url + " <br>" + request.path + "<br>"
+    for i in dir(request):
+        # 将res增加,request的内容和属性
+        res = res + str(i) + "<br>"+str(eval("request."+i)) + "<br>"
+    return res
 
 
 if __name__ =='__main__':
